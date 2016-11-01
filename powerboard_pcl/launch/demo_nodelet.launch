@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- BE SURE TO SOURCE WORKSPACE BEFOREHAND -->
+    <!-- alias: srccpp -->
+
+    <!-- depth camera point cloud topic -->
+    <arg name="input" default="/camera/depth_registered/points" />
+
+
+    <!-- launch the depth camera -->
+<!--     <include file="$(find openni_launch)/launch/openni.launch"/>
+    <group if="$(arg bag)">
+        <node pkg="rosbag" type="play" name="rosbag" args="-l $(find powerboard_pcl)/bag/$(arg bag_file)"/>
+    </group> -->
+    <!-- launch the nodelet manager -->
+    <node pkg="nodelet" type="nodelet" name="pcl_manager" args="manager" output="screen"/>  
+
+    <!-- tracker nodes and static frame broadcaster -->
+<!--     <node pkg="objecttracker_nu" type="planar_sys_robot_tracker"
+    name="robot_tracking_node" output="screen" respawn="true" />
+    <node pkg="objecttracker_nu" type="planar_sys_mass_tracker"
+    name="mass_tracking_node" output="screen" respawn="true" />
+    <include file="$(find objecttracker_nu)/launch/optimization_frame_broadcaster.launch"/> -->
+
+
+    <!-- voxel downsampling, and transformation -->
+    <group ns="/cloud_downsampler">
+    <node pkg="nodelet" type="nodelet" name="voxel" args="load pcl/VoxelGrid /pcl_manager" output="screen">  
+        <remap from="~input" to="$(arg input)" />
+        <rosparam>
+            filter_field_name: z
+            filter_limit_min: 0.0
+            filter_limit_max: 5.0
+            filter_limit_negative: False
+            leaf_size: 0.05
+            output_frame: camera_rgb_optical_frame
+        </rosparam>
+    </node>
+    </group>
+
+    <group ns="/cloud_segmentation">
+    <node pkg="nodelet" type="nodelet" name="norm" args="load pcl/NormalEstimation /pcl_manager" output="screen">
+        <remap from="~input" to="/cloud_downsampler/voxel/output" />
+        <rosparam>
+            k_search: 0
+            radius_search: 0.07
+            <!-- # Set the spatial locator. Possible values are: 0 (ANN), 1 (FLANN), 2 (organized) -->
+            spatial_locator: 0
+        </rosparam>
+    </node>
+
+    <!-- Segment the table plane -->
+    <node pkg="nodelet" type="nodelet" name="planar_seg" args="load pcl/SACSegmentationFromNormals /pcl_manager" output="screen">
+        <remap from="~input" to="/cloud_downsampler/voxel/output" />
+        <remap from="~normals" to="/cloud_segmentation/norm/output" />
+        <rosparam>
+            <!-- # -[ Mandatory parameters
+            # model_type:
+            # 0: SACMODEL_PLANE
+            # 1: SACMODEL_LINE
+            # 2: SACMODEL_CIRCLE2D
+            # 3: SACMODEL_CIRCLE3D
+            # 4: SACMODEL_SPHERE
+            # 5: SACMODEL_CYLINDER
+            # 6: SACMODEL_CONE
+            # 7: SACMODEL_TORUS
+            # 8: SACMODEL_PARALLEL_LINE
+            # 9: SACMODEL_PERPENDICULAR_PLANE
+            # 10: SACMODEL_PARALLEL_LINES
+            # 11: SACMODEL_NORMAL_PLANE
+            # 12: SACMODEL_NORMAL_SPHERE
+            # 13: SACMODEL_REGISTRATION
+            # 14: SACMODEL_REGISTRATION_2D
+            # 15: SACMODEL_PARALLEL_PLANE
+            # 16: SACMODEL_NORMAL_PARALLEL_PLANE
+            # 17: SACMODEL_STICK -->
+            model_type: 11
+            distance_threshold: 0.1
+            max_iterations: 500
+            method_type: 0
+            optimize_coefficients: true
+            normal_distance_weight: 0.1
+            eps_angle: 0.09
+        </rosparam>
+    </node>
+    
+    <!-- <node pkg="nodelet" type="nodelet" name="sac_seg" args="load pcl/SACSegmentation pcl_manager" output="screen">
+        <remap from="~input" to="/cloud_downsampler/voxel/output"/>
+        <remap from="~inliers" to="find_plane/plane_indices"/>
+        <rosparam>
+            model_type: 0 
+            method_type: 0        
+            distance_threshold: 0.02
+            max_iterations: 500
+            optimize_coefficients: true
+            axis: [0.0, 0.0, 0.0]
+        </rosparam>
+    </node> -->
+
+    <node pkg="nodelet" type="nodelet" name="extract_plane" args="load pcl/ExtractIndices /pcl_manager" output="screen">
+        <remap from="~input" to="/cloud_downsampler/voxel/output" />
+        <remap from="~indices" to="/cloud_segmentation/planar_seg/inliers" />
+        <rosparam>
+            negative: false
+            approximate_sync: true
+        </rosparam>
+    </node>
+    </group>
+
+    <!-- pass-through filtering for the robot:-->  
+    <!-- <group ns="/robot_box_filter"> -->
+    <!-- Run a passthrough filter to delimit in x direction -->
+    <!-- <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough /pcl_manager" output="screen">
+      <remap from="~input" to="/cloud_downsampler/voxel/output" />
+      <rosparam>
+        filter_field_name: x
+        filter_limit_min: -1.0
+        filter_limit_max: 1.0
+      </rosparam>
+    </node> -->
+    <!-- Run a passthrough filter to delimit in y direction -->
+    <!-- <node pkg="nodelet" type="nodelet" name="psy" args="load pcl/PassThrough /pcl_manager" output="screen">
+      <remap from="~input" to="psx/output" />
+      <rosparam>
+        filter_field_name: y
+        filter_limit_min: -0.2
+        filter_limit_max: 1.0
+      </rosparam>
+    </node> -->
+    <!-- Run a passthrough filter to delimit in z direction -->
+    <!-- <node pkg="nodelet" type="nodelet" name="psz" args="load pcl/PassThrough /pcl_manager" output="screen">
+      <remap from="~input" to="psy/output" />
+      <rosparam>
+        filter_field_name: z
+        filter_limit_min: 0.0
+        filter_limit_max: 2.5
+      </rosparam>
+    </node>
+    </group> -->
+
+    <!-- pass-through filtering for the mass:-->  
+    <!-- <group ns="/mass_box_filter"> -->
+    <!-- Run a passthrough filter to delimit in x direction -->
+    <!-- <node pkg="nodelet" type="nodelet" name="psx" args="load pcl/PassThrough /pcl_manager" output="screen">
+      <remap from="~input" to="/cloud_downsampler/voxel/output" />
+      <rosparam>
+        filter_field_name: x
+        filter_limit_min: -1.0
+        filter_limit_max: 1.0
+      </rosparam>
+    </node> -->
+    <!-- Run a passthrough filter to delimit in y direction -->
+    <!-- <node pkg="nodelet" type="nodelet" name="psy" args="load pcl/PassThrough /pcl_manager" output="screen">
+      <remap from="~input" to="psx/output" />
+      <rosparam>
+        filter_field_name: y
+        filter_limit_min: -1.75
+        filter_limit_max: -0.15
+      </rosparam>
+    </node> -->
+    <!-- Run a passthrough filter to delimit in z direction -->
+    <!-- <node pkg="nodelet" type="nodelet" name="psz" args="load pcl/PassThrough /pcl_manager" output="screen">
+      <remap from="~input" to="psy/output" />
+      <rosparam>
+        filter_field_name: z
+        filter_limit_min: 0.0
+        filter_limit_max: 2.5
+      </rosparam>
+    </node>
+    </group> -->
+
+</launch>
