@@ -196,5 +196,14 @@ add_definitions(${PCL_DEFINITIONS})
 add_executable(example src/example.cpp)
 target_link_libraries(example ${catkin_LIBRARIES})
 
+add_executable(example_tf_rpy_from_quat src/example_tf_rpy_from_quat.cpp)
+target_link_libraries(example_tf_rpy_from_quat ${catkin_LIBRARIES})
+
 add_executable(example_segment_plane src/example_segment_plane.cpp)
 target_link_libraries(example_segment_plane ${catkin_LIBRARIES})
+
+add_executable(example_odom src/example_odom.cpp)
+target_link_libraries(example_odom ${catkin_LIBRARIES})
+
+add_executable(example_odom src/arduino_odom.cpp)
+target_link_libraries(arduino_odom ${catkin_LIBRARIES})

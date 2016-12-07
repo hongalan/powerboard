@@ -1,0 +1,2 @@
+SUBSYSTEM=="tty", ATTRS{serial}=="855313032313516111E1", SYMLINK+="arduino"
+SUBSYSTEM=="tty", ATTRS{serial}=="0000:00:14.0", SYMLINK+="hokuyo"
