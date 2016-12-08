@@ -96,7 +96,7 @@
             <param name="max_iterations" value="10"/>
         </node>
 
-        <node if="$(arg rviz)" pkg="rviz" type="rviz" output="screen" name="rviz" args="-d $(find powerboard_pcl)/launch/hokuyo.rviz"/>
+        <node if="$(arg rviz)" pkg="rviz" type="rviz" output="screen" name="rviz" args="-d $(find powerboard_pcl)/resources/hokuyo.rviz"/>
     </group>
 
 </launch>
