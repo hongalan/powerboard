@@ -1,7 +1,8 @@
 # Localization, Mapping, and Path-planning for a Powered Longboard
-# *powerboard_pcl ROS package README*
+## *powerboard_pcl ROS package README*
 
 _Owner: Alan Hong, Northwestern University, MSR 2016_
+
 _Project write-up [available here](https://github.com/hongalan/powerboard/blob/master/writeup.md)._
 
 
