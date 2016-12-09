@@ -41,7 +41,7 @@ Currently, the sensors and actuators have all been integrated such that the PC r
 
 ### **3. Design Walkthrough:**
 
-[A detailed component list and vendors can be found here.](http://google.com)
+[A detailed list of compenents and vendors can be found here.](https://github.com/hongalan/powerboard/blob/master/components_list.txt)
 
 [My Arduino code and referenced libraries can be found here.](https://github.com/hongalan/powerboard-arduino)
 
