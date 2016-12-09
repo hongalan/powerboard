@@ -22,8 +22,8 @@ Table of Contents
 In brief, the goal of this project is to create a powered longboard with shared autonomy. The longboard localizes itself on a generated map and provides feedback through a steering mechanism, detecting obstacles such as objects and people and steering the user away from them. 
 
 The user and the longboard have shared control of speed and direction: 
-*The user sets desired speed by means of a hand-held joystick, but the longboard can slow or stop itself if it detects an obstacle.
-*The user can lean to determine direction of turns, but the longboard's steering mechanism provides resistance to bias the user away from walls and towards the direction of turns as necessary.
+* The user sets desired speed by means of a hand-held joystick, but the longboard can slow or stop itself if it detects an obstacle.
+* The user can lean to determine direction of turns, but the longboard's steering mechanism provides resistance to bias the user away from walls and towards the direction of turns as necessary.
 
 This project was designed to expose myself to the challenges presented in high-voltage electronics, sensor integration, component sizing, and navigation principles such as Bayesian filters and planning algorithms. It also introduced questions of human-robot interaction and how a robot must behave to safely interact with its user.
 
