@@ -1,0 +1,134 @@
+COMPONENTS LIST
+===============
+
+================================
+ELECTRICAL COMPONENTS
+================================
+===Processor===
+Arduino Mega 2560
+    https://www.sparkfun.com/products/11061
+
+===Sensors===
+Adafruit 9-DOF IMU fusion breakout (BNO055)
+    https://www.adafruit.com/products/2472?gclid=CMnwqurf-c8CFQupaQodEGMK6A
+Hokuyo scanning laser range finder
+    http://www.robotshop.com/en/hokuyo-urg-04lx-ug01-scanning-laser-rangefinder.html
+Eagle Tree brushless motor RPM sensor
+    https://www.amazon.com/Eagle-Tree-Systems-Brushless-RPM-BRS-V2/dp/B00NU8FFIG
+
+===ESC===
+Favourite 120A (6S) brushless high performance ESC
+    http://diyelectricskateboard.com/diy-electric-skateboard-kits-parts/single-motor-120a-6s-esc/
+Favourite ESC programming board
+    http://diyelectricskateboard.com/diy-electric-skateboard-kits-parts/torqueboards-esc-programming-card/
+
+===Motor Driver===
+H-Bridge, 13A, 5-25V
+($13.82) http://www.robotshop.com/en/cytron-13a-5-30v-single-dc-motor-controller.html
+
+===Capacitor===
+Aluminum 4700uF 50V - Nichicon  UVR1H472MRD6
+    http://www.digikey.com/short/3bphfn
+
+===Voltage Regulator===
+5V voltage regulator (5A)
+    https://www.pololu.com/product/2851
+
+===MOSFET===
+N-Channel 75V 73A TO220AB - NXP Semiconductors
+    http://www.digikey.com/short/34vw2w
+
+===Diode===
+Schottky Diode 200V 120A TO247
+    http://www.digikey.com/short/3zw9nq
+
+===Optoisolator===
+5kV, 100 GOhm isolation resistance
+    http://www.digikey.com/short/3zw9vz
+
+===Current Sensor===  
+DC Hall Effect Sensor 100A, unidirectional
+    http://www.digikey.com/short/3bq8m5
+
+===Power Supply===
+LiPo battery (6S) 
+    https://www.amazon.com/Turnigy-5000mAh-Battery-22-2v-20-30C/dp/B00LF3QJYW
+Battery charger
+    https://www.amazon.com/Genuine-SKYRC-Power-6Amps-50Watts/dp/B00ND7J38C
+
+===Connectors===
+Bullet Connector Male, 14-16 AWG
+    http://www.digikey.com/short/34vwm3
+Bullet Connector Female, 14-16 AWG
+    http://www.digikey.com/short/34vwrp
+Nylon XT90 Connectors
+    http://www.hobbyking.com/hobbyking/store/__24707__Nylon_XT90_Connectors_Male_Female_5_pairs_.html
+JST Connector, XH series, 3 pin, Through Hole
+    http://www.digikey.com/short/3bbhn2
+JST Connector, XH series, 3 pin, Housing
+    http://www.digikey.com/short/3bq8b8
+JST Connector, XH series, 10 pin, Through Hole
+    http://www.digikey.com/short/3bq8b2
+JST Connector, XH series, 10 pin, Housing
+    http://www.digikey.com/short/3bq8b1
+JST Connector, XH series, Contact
+    http://www.digikey.com/short/3bq8bm
+Breakaway female header pins
+    https://www.sparkfun.com/products/743
+===Miscellaneous===
+Rectangular Rocker Switch
+    http://www.digikey.com/short/34vw97
+2-Axis Parallax joystick potentiometer
+    http://www.digikey.com/short/34vwbf
+
+
+================================
+MECHANICAL COMPONENTS
+================================
+===Mounts===
+Dual motor mechanical kit (trucks, wheels, belts, pulleys, motor mounts)
+    http://diyelectricskateboard.com/diy-electric-skateboard-kits-parts/torqueboards-dual-motor-mechanical-kit/
+
+===Motors===
+170kV 6355 Brushless Motor
+    http://diyelectricskateboard.com/diy-electric-skateboard-kits-parts/electric-skateboard-motor-6355-170kv/
+24V DC Gearmotor
+    https://www.grainger.com/product/MOLON-DC-Gearmotor-24VDC-20UH02
+
+===Steering Mechanism===
+Coupling hex nut
+    https://www.grainger.com/product/GRAINGER-APPROVED-Coupling-Nut-1JA63
+Bowden cable housing
+    https://www.amazon.com/Jagwire-Brake-Housing-Liner-Black/dp/B001GSSED0
+Steel shifter cable
+    https://www.amazon.com/JAGWIRE-Slick-Stainless-Shifter-Cables/dp/B01LXXAFV5
+Steel Cable, 1/16"Cable, Vinyl coating
+    https://www.grainger.com/product/DAYTON-Cable-33RF56
+Wire Rope Sleeve, 1/16"
+    https://www.grainger.com/product/DAYTON-Wire-Rope-Sleeve-1DLD7
+Wire Rope Thimble, 1/16"
+    https://www.grainger.com/product/DAYTON-Wire-Rope-Thimble-1DLG6
+Loctite 243
+    https://www.grainger.com/product/LOCTITE-Primerless-Threadlocker-243-5HYH7
+V-Belt pulley, 1/2" Shaft, 2.05"OD
+    https://www.grainger.com/product/TB-WOOD-S-V-Belt-Pulley-5RHY5
+Gearbelt pulley, XL, 18 grooves
+    https://www.grainger.com/product/POWER-DRIVE-GearbeltPulley-6FFR9
+Gearbelt pulley, XL, 30 grooves
+    https://www.grainger.com/product/POWER-DRIVE-GearbeltPulley-6FFT5
+Synchronous Drive Gearbelt, 1/5" Pitch, XL, 85 Teeth
+    https://www.grainger.com/product/DAYTON-Synchronous-Drive-Gearbelt-1DHJ3
+6061 Aluminum Angle
+    https://www.grainger.com/product/GRAINGER-APPROVED-Angle-2EYU6
+Flanged sleeve bearing, 1/2"ID
+    http://www.mcmaster.com/#2938t11/=13o8fk5
+Steel D-profile rotary shaft, 1/2" OD, 12" length
+    http://www.mcmaster.com/#precision-shafts/=13o9t87
+Flexible shaft coupling, 1/2" & 5/16" shafts, set screws
+    http://www.mcmaster.com/#9861t838/=13o9qoq
+1.6mm Cable end caps
+    https://www.amazon.com/Shimano-Brake-Cable-Pack-1-6mm/dp/B005GXR022/
+5mm Cable housing ferrules
+    https://www.amazon.com/Zimo-50pcs-Jagwire-Housing-Ferrule/dp/B013BEJ10G
+Throttle cable housing end fittings
+    https://www.pegasusautoracing.com/productselection.asp?Product=1271
