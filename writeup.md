@@ -19,7 +19,7 @@ Table of Contents
 
 ### **1. Goal and Motivation:**  
 
-In brief, the goal of this project is to create a self-navigating longboard with shared autonomy. The vision is that the user may dictate a desired end location in a pre-generated map of the surroundings containing a route to this destination. The longboard then localizes itself on the map and provides feedback through a steering mechanism, guiding the user to this set destination while detecting and avoiding obstacles such as objects and people. 
+In brief, the goal of this project is to create a powered longboard with shared autonomy. The longboard localizes itself on a generated map and provides feedback through a steering mechanism, detecting obstacles such as objects and people and steering the user away from them. 
 
 The user and the longboard have shared control of speed and direction: 
 *The user sets desired speed by means of a hand-held joystick, but the longboard can slow or stop itself if it detects an obstacle.
