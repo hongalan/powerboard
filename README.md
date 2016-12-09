@@ -25,7 +25,6 @@ As of December 2016, the package is able to produce a map of its environment and
 `powerboard_pcl` is dependent on the following packages. Upon cloning this package, you may install them by running `rosdep install powerboard_pcl` .
 
 ~~~
-
 roscpp
 sensor_msgs
 rosserial_python
