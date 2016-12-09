@@ -62,7 +62,7 @@ Originally, a pair of 300kv brushless motors were used to drive the motor. At th
 
 #### **B. Electrical**
 
-The ESC's are supplied power by a 6-cell, 22.2V, LiPo battery, and are given a PPM signal by an Arduino Mega. To protect the low-voltage components, they are isolated from the high-voltage components by means of a custom-made PCB designed in KiCad, featuring a set of optocouplers, current sensors, a 5V regulator, and safety shutoff mechanisms including an emergency stop and dead man's switch.
+The ESC's are supplied power by a 6-cell, 22.2V, LiPo battery, and are given a PPM signal by an Arduino Mega. To protect the low-voltage components, they are isolated from the high-voltage components by means of a custom-made PCB designed in KiCad, featuring a set of optocouplers, current sensors, a 5V regulator, and safety shutoff mechanisms including an emergency stop and dead man's switch. The Gerber files for this PCB can be [found here](https://www.dropbox.com/s/ocj287f03fwcqhn/powerboard_pcb.zip?raw=1)
 
 ![Image of pcb](https://www.dropbox.com/s/o434b1s8a9orjfm/02_pcb_v2_populated.jpg?raw=1)
 
